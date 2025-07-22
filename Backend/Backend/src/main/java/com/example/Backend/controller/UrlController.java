@@ -18,7 +18,7 @@ public class UrlController {
     UsersRepository usersRepository;
     //save url
     @PostMapping("/save")
-    public Url saveUser(@RequestBody UrlDTO url)
+    public Url saveUrl(@RequestBody UrlDTO url)
     {
         Users user = usersRepository.findById(url.getUserId()).orElseThrow(() -> new RuntimeException("User not found"));;
         // Build Url entity
