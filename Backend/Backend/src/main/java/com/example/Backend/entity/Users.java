@@ -21,6 +21,8 @@ public class Users {
     @Column(unique = true, nullable = false)
    private String email;
    private String password;
+   private  String role="USER";
+   //roles-USER,ADMIN
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
