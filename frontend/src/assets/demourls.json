@@ -1,0 +1,62 @@
+[
+  {
+    "id": "u001",
+    "name": "Google Search - OpenAI",
+    "original_url": "https://www.google.com/search?q=openai+chatgpt",
+    "created_at": "2025-07-26T10:05:00Z"
+  },
+  {
+    "id": "u002",
+    "name": "YouTube - Rick Roll",
+    "original_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "created_at": "2025-07-24T08:45:30Z"
+  },
+  {
+    "id": "u003",
+    "name": "MDN JavaScript Docs",
+    "original_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "created_at": "2025-07-20T15:30:00Z"
+  },
+  {
+    "id": "u004",
+    "name": "Netflix Stranger Things",
+    "original_url": "https://www.netflix.com/title/80057281",
+    "created_at": "2025-07-18T19:12:10Z"
+  },
+  {
+    "id": "u005",
+    "name": "React GitHub Repo",
+    "original_url": "https://github.com/facebook/react",
+    "created_at": "2025-07-15T12:00:00Z"
+  },
+  {
+    "id": "u006",
+    "name": "Hacker News",
+    "original_url": "https://news.ycombinator.com/",
+    "created_at": "2025-07-10T09:22:00Z"
+  },
+  {
+    "id": "u007",
+    "name": "React Course - Udemy",
+    "original_url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
+    "created_at": "2025-07-08T11:30:00Z"
+  },
+  {
+    "id": "u008",
+    "name": "OpenAI Plugins Blog",
+    "original_url": "https://openai.com/blog/chatgpt-plugins",
+    "created_at": "2025-07-05T07:05:30Z"
+  },
+  {
+    "id": "u009",
+    "name": "TailwindCSS Docs",
+    "original_url": "https://tailwindcss.com/docs",
+    "created_at": "2025-07-02T14:00:00Z"
+  },
+  {
+    "id": "u010",
+    "name": "Firebase Console",
+    "original_url": "https://console.firebase.google.com/",
+    "created_at": "2025-06-28T18:30:00Z"
+  }
+]
