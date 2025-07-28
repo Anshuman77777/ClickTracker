@@ -1,6 +1,17 @@
+import { Link, useNavigate } from 'react-router-dom'
 import React from 'react'
+import { useAuth } from '../contexts/AuthContext';
 
 function Navbar() {
+  const nav = useNavigate();
+  const {logout} = useAuth();
+  const handleSignout = ()=>{
+    const confirm= window.confirm("Logout?")
+    if(confirm)
+    {
+      logout();
+    }
+  }
   return (
     <>
     <div className="navbar bg-base-100 shadow-sm">
@@ -12,14 +23,14 @@ function Navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li className=''><a>Create New Url</a></li>
-        <li className='text-red-400'><a>Signout</a></li>
+        <li className=''><Link to='/create'>Create New Url</Link></li>
+        <li className='text-red-400 link' onClick={handleSignout}>Signout</li>
         
       </ul>
     </div>
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">Click Tracker</a>
+    <Link to='/' className="btn btn-ghost text-xl">Click Tracker</Link>
   </div>
   <div className="navbar-end">
     

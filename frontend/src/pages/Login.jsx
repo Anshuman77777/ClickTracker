@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Mail, Lock } from "lucide-react";
+import { Link,  useNavigate } from "react-router-dom";
+import { login } from "../apis/auth";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Login() {
+  const {loginLocal}=useAuth();
+  const nav =useNavigate();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -11,10 +16,22 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Replace this with your login logic (e.g., API call or Firebase)
-    alert(`Logged in with ${form.email}`);
+  const handleLogin = async (e) => {
+    try {
+      e.preventDefault();
+      const result = await login(form.email, form.password);
+      loginLocal({
+        email:result.email,
+        id:result.id,
+        role:result.id
+      },result.token);
+      alert(result);
+      nav('/');
+
+    } catch (error) {
+      alert(error.message);
+    }
+
   };
 
   return (
@@ -54,7 +71,7 @@ export default function Login() {
         <button type="submit" className="btn btn-primary w-full">
           Login
         </button>
-         <a className="link link-info w-full text-center">Signup</a>
+        <Link to='/signup' className="link link-info w-full text-center">Signup</Link>
       </form>
     </div>
   );

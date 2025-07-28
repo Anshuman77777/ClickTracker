@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -46,6 +47,11 @@ public class AuthController {
         String token = jwtUtil.generateToken(
                 user.getEmail(),user.getRole(),String.valueOf(user.getId())
         );
-        return ResponseEntity.ok(Map.of("token",token));
+        Map<String,Object>response=new HashMap<>();
+        response.put("token",token);
+        response.put("id",user.getId());
+        response.put("role",user.getRole());
+        response.put("email",user.getEmail());
+        return ResponseEntity.ok(response);
     }
 }

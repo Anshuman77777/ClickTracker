@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Mail, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { signup } from "../apis/auth";
 
 export default function Signup() {
   const [form, setForm] = useState({
@@ -12,13 +14,20 @@ export default function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSignup = (e) => {
-    e.preventDefault();
-    if (form.password !== form.confirmPassword) {
-      return alert("Passwords do not match");
+  const handleSignup = async (e) => {
+    try {
+
+      e.preventDefault();
+      if (form.password !== form.confirmPassword) {
+        return alert("Passwords do not match");
+      }
+      await signup(form.email, form.password);
+      // Continue with signup logic here (e.g., API call)
+      alert("Signed up successfully!");
+
+    } catch (error) {
+      alert(error.message);
     }
-    // Continue with signup logic here (e.g., API call)
-    alert("Signed up successfully!");
   };
 
   return (
@@ -72,7 +81,7 @@ export default function Signup() {
         <button type="submit" className="btn btn-primary w-full">
           Create Account
         </button>
-    <a className="link link-info w-full text-center">Login</a>
+        <Link to='/login' className="link link-info w-full text-center">Login</Link>
       </form>
     </div>
   );

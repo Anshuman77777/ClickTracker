@@ -12,7 +12,7 @@ const RefSpread = [
 
 function UrlInfo() {
   return (
-    <div className="w-full h-full flex flex-col overflow-y-auto">
+    <div className="w-full h-full flex flex-col p-5 overflow-y-auto">
       <div className="w-full flex gap-2 p-1 min-h-[200px]">
         {/* Left Section */}
         <section className="flex flex-col card rounded-2xl w-2/5 bg-gradient-to-r from-blue-600 to-blue-900 text-white h-full p-4 justify-around">
