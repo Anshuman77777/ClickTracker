@@ -42,7 +42,7 @@ public class JwtUtil {
     }
     public  Long extractId(String token)
     {
-        return getClaims(token).get("id", Long.class);
+        return Long.valueOf(getClaims(token).get("id",String.class).toString());
     }
     // ✅ Validate token
     public boolean isTokenValid(String token, String email) {

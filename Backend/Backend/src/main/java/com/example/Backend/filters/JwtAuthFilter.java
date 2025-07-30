@@ -33,6 +33,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             token=authHeader.substring(7);
             try {
                 email=jwtUtil.extractEmail(token);
+                Long id =jwtUtil.extractId(token);
+                request.setAttribute("userId",id);
             }
             catch (ExpiredJwtException e)
             {

@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from "react";
+import { useAuth } from '../contexts/AuthContext';
+import { createUrl } from '../apis/url';
 
 function CreateUrl() {
-  const [form, setForm] = useState({ name: "", original_url: "" });
+  const [form, setForm] = useState({ name: "", originalUrl: "" });
   const [error, setError] = useState("");
-
+  const id=useAuth().user.id;
   const isValidUrl = (url) => {
     try {
       new URL(url);
@@ -14,9 +16,9 @@ function CreateUrl() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    if (!isValidUrl(form.original_url)) {
+    if (!isValidUrl(form.originalUrl)) {
       setError("Please enter a valid URL (must include https:// or http://)");
       return;
     }
@@ -25,7 +27,8 @@ function CreateUrl() {
     console.log("Submitted:", form);
     
     // submit to server or store in state
-
+    form.userId=id;
+    await createUrl(form,localStorage.getItem("token"));
     window.location.href='/';
   };
 
@@ -58,8 +61,8 @@ function CreateUrl() {
             Original URL
           </label>
           <input
-            name="original_url"
-            value={form.original_url}
+            name="originalUrl"
+            value={form.originalUrl}
             onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-500"
             placeholder="https://example.com"
