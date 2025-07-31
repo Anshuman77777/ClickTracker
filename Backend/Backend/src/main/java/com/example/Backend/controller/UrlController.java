@@ -52,6 +52,7 @@ public class UrlController {
         for(int i=0;i<temp.size();i++)
         {
             UrlDTO sam=new UrlDTO();
+            sam.setId(temp.get(i).getId());
             sam.setName(temp.get(i).getName());
             sam.setOriginalUrl(temp.get(i).getOriginalUrl());
             sam.setCreatedAt(temp.get(i).getCreatedAt());

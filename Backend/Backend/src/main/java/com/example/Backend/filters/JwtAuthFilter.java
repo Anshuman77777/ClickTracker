@@ -35,10 +35,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 email=jwtUtil.extractEmail(token);
                 Long id =jwtUtil.extractId(token);
                 request.setAttribute("userId",id);
+                System.out.println("Header: " + authHeader);
+                System.out.println("Token: " + token);
+                System.out.println("Email: " + email);
+                System.out.println("User authenticated: " + (SecurityContextHolder.getContext().getAuthentication() != null));
+
             }
             catch (ExpiredJwtException e)
             {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                System.out.println("Hello mf");
+                System.out.println(e.getMessage());
                 return;
             }
         }

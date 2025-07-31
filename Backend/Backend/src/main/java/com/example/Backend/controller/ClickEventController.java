@@ -1,6 +1,9 @@
 package com.example.Backend.controller;
 
 import com.example.Backend.dto.ClickEventDTO;
+import com.example.Backend.dto.DaywiseClickDTO;
+import com.example.Backend.dto.DeviceCountDTO;
+import com.example.Backend.dto.ReferrerCountDTO;
 import com.example.Backend.entity.ClickEvent;
 import com.example.Backend.entity.Url;
 import com.example.Backend.repository.UrlRepository;
@@ -37,4 +40,20 @@ public class ClickEventController {
     {
         return clickEventService.getClickEventsForURL(urlId);
     }
+    @GetMapping("groupbyreferrer/{urlId}")
+    List<ReferrerCountDTO> getReferrers(@PathVariable Long urlId)
+    {
+        return clickEventService.groupByReferrers(urlId);
+    }
+    @GetMapping("groupbydevice/{urlId}")
+    List<DeviceCountDTO> getDevices(@PathVariable Long urlId)
+    {
+        return clickEventService.groupByDevices(urlId);
+    }
+    @GetMapping("groupbydays/{urlId}")
+    List<DaywiseClickDTO> getDays(@PathVariable Long urlId)
+    {
+        return clickEventService.groupByDays(urlId);
+    }
+
 }
