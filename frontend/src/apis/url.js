@@ -7,8 +7,8 @@ export async function getUrl(id, token) {try {
         Authorization: `Bearer ${token}`
       }
     });
-    console.log("response", response.data);
-    return response.data;
+  //  console.log("response", response.data);
+  return response.data;
   } catch (error) {
     console.error(error.message);
     return []; // return empty array to avoid undefined

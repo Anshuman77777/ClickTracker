@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode >
+  
     <BrowserRouter>
     <AuthProvider>
     <div className='w-screen h-screen overflow-hidden'>
@@ -14,5 +14,5 @@ createRoot(document.getElementById('root')).render(
     </div>
     </AuthProvider>
     </BrowserRouter>
-  </StrictMode>,
+  
 )

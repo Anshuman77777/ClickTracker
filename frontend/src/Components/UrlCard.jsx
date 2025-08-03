@@ -1,10 +1,10 @@
 import React from 'react'
 import { generateGradientFromString } from '../util/colors'
 import { Link } from 'react-router-dom'
-function UrlCard({UrlName,Date,id}) {
+function UrlCard({UrlName,Date,id,body}) {
     const gradient=generateGradientFromString(UrlName)
   return (
-    <Link to={`/url/${id}`}>
+    <Link to={`/url/${id}`} state={body}>
    <div className="card  text-primary-content w-full h-full bg-gradient-to-r from-blue-600 to-blue-900">
   <div className="card-body cursor-pointer shadow-2xl">
     <h2 className="card-title">{UrlName}</h2>

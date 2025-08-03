@@ -20,7 +20,7 @@ function AllUrls() {
     return (
         <div className='w-full grid grid-cols-3 p-4 gap-2 overflow-auto'>
           {urls&&urls.map((data)=>(
-            <UrlCard UrlName={data.name} Date={data.createdAt} id={data.id}/>
+            <UrlCard UrlName={data.name} Date={data.createdAt} id={data.id} body={data}/>
           ))}
         </div>
 

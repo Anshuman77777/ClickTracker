@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Copy } from "lucide-react";
 
-export default function Share() {
+export default function Share({id}) {
   const [copied, setCopied] = useState(false);
   const [refSource, setRefSource] = useState("");
 
-  const shareUrl = `https://localhost:3000/gate/0131?ref=${refSource}`;
+  const shareUrl = `${window.location.origin}/gate/${id}?ref=${refSource}`;
 
   const handleCopy = async () => {
     if(refSource.length==0){alert('Adding some reference source is mandatory');return;}
